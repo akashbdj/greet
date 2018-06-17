@@ -18,7 +18,7 @@ let store = configureStore(initialState)
  *
  *  Try to login with these credentials
  */
-;(function init() {
+;(function seed() {
     localStorage.setItem('steve@apple.com', 'apple@12345')
     localStorage.setItem('steve@orange.com', 'orange@12345')
 })()
