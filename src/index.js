@@ -1,6 +1,12 @@
-import name from "./test"
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-/**
- * Testing if babel is working properly!
- */
-document.getElementById('root').innerHTML = name
+
+const TestComponent = ({ name = "Akash" }) => {
+    return <div>This is a Test Component! Your name is {name}</div>
+}
+
+ReactDOM.render(
+    <TestComponent />,
+    document.getElementById('root')
+)
