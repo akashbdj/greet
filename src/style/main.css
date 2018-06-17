@@ -68,3 +68,19 @@ input::placeholder {
     color: #fff;
     text-decoration: none;
 }
+
+.profile {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // min-height: 100vh;
+}
+
+.profile header {
+    background: #6772e5;
+    height: 200px;
+    box-shadow: 0 10px 20px -5px #6772e5db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
