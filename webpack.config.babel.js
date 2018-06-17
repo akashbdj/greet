@@ -1,6 +1,6 @@
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 export default {
     entry: './src/index.js',
@@ -17,10 +17,7 @@ export default {
             },
             {
                 test: /\.css$/,
-                use: [
-                  MiniCssExtractPlugin.loader,
-                  "css-loader"
-                ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             }
         ]
     },
@@ -30,7 +27,10 @@ export default {
             template: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css"
+            filename: '[name].css'
         })
-    ]
+    ],
+    devServer: {
+        historyApiFallback: true
+    }
 }
