@@ -19,6 +19,19 @@ export default {
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.(png|jpg|jpeg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name]-[hash].[ext]',
+                            context: 'src/',
+                            publicPath: '/'
+                        }
+                    }
+                ]
             }
         ]
     },

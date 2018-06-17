@@ -51,7 +51,7 @@ input::placeholder {
     width: 25%;
     background: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 9px 0 #6772e552;
     position: relative;
     bottom: 40px;
 }
@@ -70,17 +70,32 @@ input::placeholder {
 }
 
 .profile {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    bottom: 40px;
 }
 
 .profile header {
     background: #6772e5;
-    height: 200px;
+    padding: 50px;
+    width: 25%;
     box-shadow: 0 10px 20px -5px #6772e5db;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.profile--pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile--name {
+    color: #fff;
+    margin: 20px 0;
+    font-size: 20px;
+    letter-spacing: 0.025em;
 }
