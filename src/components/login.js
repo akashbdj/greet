@@ -28,16 +28,31 @@ class Login extends Component {
                 2. Disable Submit if invalid or empty
          */
         return (
-            <div>
-                <input name="email" value={email} onChange={this.onEmailChange} />
-                <input name="email" value={password} onChange={this.onPasswordChange} />
-                <button onClick={this.onSubmit}>Log In</button>
+            <div className="login--form-wrapper">
+                <input
+                    placeholder="Email"
+                    name="email"
+                    value={email}
+                    onChange={this.onEmailChange}
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    value={password}
+                    onChange={this.onPasswordChange}
+                />
+                <div>
+                    <button className="login--button" onClick={this.onSubmit}>
+                        Log In
+                    </button>
+                </div>
             </div>
         )
     }
 
     render() {
-        return <div>{this.renderForm()}</div>
+        return <div className="login">{this.renderForm()}</div>
     }
 }
 
