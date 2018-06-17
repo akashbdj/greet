@@ -1,23 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Styles from './style/main.css'
+import { Provider } from 'react-redux'
+import './style/main.css'
 
-import Home from './components/home'
-import Login from './components/login'
+import configureStore from './store'
 
-const App = () => {
-    return (
-        <Router>
-            <div>
-                <Link to="/">Home</Link>
-                <Link to="/login">Login</Link>
+let initialState = {}
+let store = configureStore(initialState)
 
-                <Route path="/" exact component={Home} />
-                <Route path="/login" component={Login} />
-            </div>
-        </Router>
-    )
-}
+import Routes from './routes'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<Provider store={store}>{Routes}</Provider>, document.getElementById('root'))
