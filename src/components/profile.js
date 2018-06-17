@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
+import { capitalize } from '../utils/helper'
 
 class Profile extends Component {
-    getCapitalizedName = username => {
-        return username.charAt(0).toUpperCase() + username.slice(1)
-    }
-
     render() {
         let {
             params: { username }
@@ -14,7 +11,7 @@ class Profile extends Component {
             <div className="profile">
                 <header>
                     <img className="profile--pic" src="../../assets/images/buddha.jpg" />
-                    <div className="profile--name">Hello, {this.getCapitalizedName(username)}!</div>
+                    <div className="profile--name">Hello, {capitalize(username)}!</div>
                 </header>
             </div>
         )
