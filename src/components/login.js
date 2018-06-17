@@ -7,40 +7,45 @@ class Login extends Component {
         password: ''
     }
 
-    onEmailChange = e => {
-        this.setState({ email: e.target.value })
+    onCredentialChange = (entity, e) => {
+        this.setState({ [entity]: e.target.value })
     }
 
-    onPasswordChange = e => {
-        this.setState({ password: e.target.value })
-    }
-
+    /*
+        TODO:
+            1. handle validations
+            2. Disable Submit if invalid or empty
+    */
     onSubmit = () => {
-        this.props.onSubmit(this.state)
+        const { dispatch } = this.props
+        const { email } = this.state
+
+        dispatch({ type: 'TRY_LOG_IN' })
+        const token = localStorage.getItem(email)
+
+        if (token) {
+            dispatch({ type: 'LOGIN_SUCCESS', data: token })
+        } else {
+            dispatch({ type: 'LOGIN_FAILED' })
+        }
     }
 
     renderForm() {
         let { email, password } = this.state
-
-        /*
-            TODO:
-                1. handle validations
-                2. Disable Submit if invalid or empty
-         */
         return (
             <div className="login--form-wrapper">
                 <input
                     placeholder="Email"
                     name="email"
                     value={email}
-                    onChange={this.onEmailChange}
+                    onChange={e => this.onCredentialChange('email', e)}
                 />
                 <input
                     type="password"
                     placeholder="Password"
                     name="password"
                     value={password}
-                    onChange={this.onPasswordChange}
+                    onChange={e => this.onCredentialChange('password', e)}
                 />
                 <div>
                     <button className="login--button" onClick={this.onSubmit}>
@@ -56,14 +61,4 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = state => ({})
-const mapDispatchToProps = dispatch => {
-    return {
-        onSubmit: data => dispatch({ type: 'LOGIN', data })
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Login)
+export default connect()(Login)
