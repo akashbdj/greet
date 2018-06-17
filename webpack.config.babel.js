@@ -1,4 +1,5 @@
 import path from 'path'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export default {
     entry: './src/index.js',
@@ -15,4 +16,10 @@ export default {
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Apple Assignment',
+            template: './index.html'
+        })
+    ]
 }

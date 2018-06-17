@@ -1,4 +1,4 @@
 /**
  * Testing if babel is working properly!
  */
-export default "Hello, Akash Bhardwaj!"
+export default "We are testing HTML WEBPACK PLUGIN"
