@@ -52,12 +52,12 @@ class Login extends Component {
 
     renderForm() {
         let { username, password, errors } = this.state
-        let { isTryingLogin } = this.props
+        let { isAuthenticating } = this.props
         let buttonClasses = ['login--button']
 
         // if the form has any errors or
         // we're trying to log in ==> disable Log In button
-        if (this.hasErrors() || isTryingLogin) {
+        if (this.hasErrors() || isAuthenticating) {
             buttonClasses.push('disabled')
         }
 
@@ -84,7 +84,7 @@ class Login extends Component {
                         disabled={buttonClasses.indexOf('disabled') > -1}
                         onClick={this.onSubmit}
                     >
-                        {isTryingLogin ? 'Loading...' : 'Log In'}
+                        {isAuthenticating ? 'Loading...' : 'Log In'}
                     </button>
                 </div>
                 {this.hasErrors() ? (
@@ -103,5 +103,5 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = ({ isTryingLogin }) => ({ isTryingLogin })
+const mapStateToProps = ({ isAuthenticating }) => ({ isAuthenticating })
 export default connect(mapStateToProps)(Login)

@@ -53,6 +53,7 @@ input::placeholder {
     flex: none;
     padding: 50px;
     width: 25%;
+    min-width: 370px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 9px 0 #6772e552;
@@ -97,6 +98,7 @@ input::placeholder {
     background: #6772e5;
     padding: 50px;
     width: 25%;
+    min-width: 370px;
     box-shadow: 0 10px 20px -5px #6772e5db;
     text-align: center;
     border-radius: 5px;
@@ -113,6 +115,20 @@ input::placeholder {
     margin: 20px 0;
     font-size: 20px;
     letter-spacing: 0.025em;
+}
+
+.profile--button {
+    white-space: nowrap;
+    height: 35px;
+    padding: 0 12px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background: #b76ac4;
+    border-radius: 4px;
+    font-size: 15px;
+    letter-spacing: 0.025em;
+    color: #fff;
+    text-decoration: none;
+    border: 0;
 }
 
 .disabled {

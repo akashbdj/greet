@@ -5,8 +5,12 @@ import { Redirect } from 'react-router-dom'
 export function Authenticated(WrappedComponent) {
     class AuthWrapper extends Component {
         render() {
-            let { isLoggedIn } = this.props
-            if (isLoggedIn) {
+            let {
+                isAuthenticated,
+                location: { pathname }
+            } = this.props
+
+            if (isAuthenticated) {
                 return <WrappedComponent {...this.props} />
             }
 
@@ -20,9 +24,9 @@ export function Authenticated(WrappedComponent) {
 export function UnAuthenticated(WrappedComponent) {
     class UnAuthWrapper extends Component {
         render() {
-            let { isLoggedIn, currentUser } = this.props
-            if (isLoggedIn) {
-                return <Redirect to={`/${currentUser.username}`} />
+            let { isAuthenticated, currentUser } = this.props
+            if (isAuthenticated) {
+                return <Redirect to={`/${currentUser}`} />
             } else {
                 return <WrappedComponent {...this.props} />
             }
