@@ -35,7 +35,7 @@ input::placeholder {
 }
 
 .error {
-    border-bottom: 1px solid #ff002a6e;
+    border-bottom: 1px solid #ff002ae3;
 }
 
 .login {
@@ -75,8 +75,13 @@ input::placeholder {
 
 .login--error-section {
     margin-top: 20px;
-    color: #ff002a6e;
+    color: #ff002ae3;
     font-size: 12px;
+}
+
+.login--error-section::before {
+    content: '*';
+    color: #ff002ae3;
 }
 
 .profile {

@@ -35,6 +35,9 @@ export default {
             }
         ]
     },
+    devServer: {
+        historyApiFallback: true
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Apple Assignment',
@@ -43,8 +46,5 @@ export default {
         new MiniCssExtractPlugin({
             filename: '[name].css'
         })
-    ],
-    devServer: {
-        historyApiFallback: true
-    }
+    ]
 }

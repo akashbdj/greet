@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 class Login extends Component {
     state = {
-        email: '',
+        username: '',
         password: '',
         errors: {}
     }
@@ -12,18 +12,12 @@ class Login extends Component {
         this.setState({ [entity]: e.target.value, errors: {} })
     }
 
-    /*
-        TODO:
-            1. handle validations
-            2. Disable Submit if invalid or empty
-    */
     onSubmit = () => {
         const { dispatch } = this.props
-        const { email, password } = this.state
+        const { username, password } = this.state
 
-        // basic regex to test email!
-        if (!/@/.test(email)) {
-            this.setState({ errors: { email: 'Email looks invalid' } })
+        if (!username) {
+            this.setState({ errors: { username: 'Username cannot be empty' } })
             return
         }
 
@@ -36,11 +30,11 @@ class Login extends Component {
 
         // setTimeout is being used to mimic actual network call
         setTimeout(() => {
-            const token = localStorage.getItem(email)
-            if (token) {
-                dispatch({ type: 'LOGIN_SUCCESS', data: token })
+            const token = localStorage.getItem(username)
+            if (token && token === password) {
+                dispatch({ type: 'LOGIN_SUCCESS', data: { username, token } })
             } else {
-                this.setState({ errors: { failed: 'Email/Password incorrect' } })
+                this.setState({ errors: { failed: 'Username/Password incorrect' } })
                 dispatch({ type: 'LOGIN_FAILED' })
             }
         }, 2000)
@@ -52,7 +46,7 @@ class Login extends Component {
     }
 
     renderForm() {
-        let { email, password, errors } = this.state
+        let { username, password, errors } = this.state
         let { isTryingLogin } = this.props
         let buttonClasses = ['login--button']
 
@@ -63,11 +57,11 @@ class Login extends Component {
         return (
             <div className="login--form-wrapper">
                 <input
-                    placeholder="Email"
-                    name="email"
-                    className={errors.email ? 'error' : ''}
-                    value={email}
-                    onChange={e => this.onCredentialChange('email', e)}
+                    placeholder="Username"
+                    name="username"
+                    className={errors.username ? 'error' : ''}
+                    value={username}
+                    onChange={e => this.onCredentialChange('username', e)}
                 />
                 <input
                     type="password"
@@ -87,8 +81,8 @@ class Login extends Component {
                     </button>
                 </div>
                 {this.hasErrors() ? (
-                    <div class="login--error-section">
-                        {errors.email}
+                    <div className="login--error-section">
+                        {errors.username}
                         {errors.password}
                         {errors.failed}
                     </div>
