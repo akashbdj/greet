@@ -62,7 +62,7 @@ class Login extends Component {
         }
 
         return (
-            <div className="login--form-wrapper">
+            <form className="login--form-wrapper">
                 <input
                     placeholder="Username"
                     name="username"
@@ -94,7 +94,7 @@ class Login extends Component {
                         {errors.failed}
                     </div>
                 ) : null}
-            </div>
+            </form>
         )
     }
 
