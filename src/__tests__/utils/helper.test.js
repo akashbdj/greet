@@ -1,4 +1,4 @@
-import { capitalize } from '../helper'
+import { capitalize } from '../../utils/helper'
 
 test('capitalize should work with undefined values', () => {
     expect(capitalize(undefined)).toBe('')

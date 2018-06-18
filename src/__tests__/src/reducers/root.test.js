@@ -1,5 +1,5 @@
-import rootReducer from './root'
-import '../tests/localStorageMock'
+import rootReducer from '../../../reducers/root'
+import '../../localStorageMock'
 
 const initialState = {
     isAuthenticated: false,
