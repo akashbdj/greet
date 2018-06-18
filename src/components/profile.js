@@ -8,15 +8,13 @@ class Profile extends Component {
     }
 
     render() {
-        let {
-            params: { username }
-        } = this.props.match
+        let { currentUser } = this.props
 
         return (
             <div className="profile">
                 <header>
                     <img className="profile--pic" src="../../assets/images/buddha.jpg" />
-                    <div className="profile--name">Hello, {capitalize(username)}!</div>
+                    <div className="profile--name">Hello, {capitalize(currentUser)}!</div>
                     <button className="profile--button" onClick={this.onLogout}>
                         Log out
                     </button>
