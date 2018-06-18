@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import users from '../model'
+import { logIn, loginFailed, tryLogIn } from '../actions'
 
 class Login extends Component {
     state = {
@@ -26,16 +28,19 @@ class Login extends Component {
             return
         }
 
-        dispatch({ type: 'TRY_LOG_IN' })
+        dispatch(tryLogIn())
 
         // setTimeout is being used to mimic actual network call
         setTimeout(() => {
-            const token = localStorage.getItem(username)
-            if (token && token === password) {
-                dispatch({ type: 'LOGIN_SUCCESS', data: { username, token } })
+            const user = users.find(
+                user => user.username === username && user.password === password
+            )
+
+            if (user) {
+                dispatch(logIn(user))
             } else {
                 this.setState({ errors: { failed: 'Username/Password incorrect' } })
-                dispatch({ type: 'LOGIN_FAILED' })
+                dispatch(loginFailed())
             }
         }, 2000)
     }
@@ -50,6 +55,8 @@ class Login extends Component {
         let { isTryingLogin } = this.props
         let buttonClasses = ['login--button']
 
+        // if the form has any errors or
+        // we're trying to log in ==> disable Log In button
         if (this.hasErrors() || isTryingLogin) {
             buttonClasses.push('disabled')
         }
