@@ -1,5 +1,9 @@
 # Greet
 
+#### Download/Clone repository:
+```sh
+$ git clone https://github.com/akashbdj/greet.git
+```
 #### Installation:
 Install the dependencies and devDependencies and start the server.
 
