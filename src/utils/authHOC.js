@@ -22,11 +22,12 @@ export function UnAuthenticated(WrappedComponent) {
     class UnAuthWrapper extends Component {
         render() {
             let { isAuthenticated, currentUser } = this.props
+
             if (isAuthenticated) {
                 return <Redirect to="/" />
-            } else {
-                return <WrappedComponent {...this.props} />
             }
+                
+            return <WrappedComponent {...this.props} />
         }
     }
 
