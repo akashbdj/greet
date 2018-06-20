@@ -11,6 +11,7 @@ Install the dependencies and devDependencies and start the server.
 $ cd greet
 $ npm install
 $ npm start
+$ open http://localhost:8080
 ```
 
 For production environments:
