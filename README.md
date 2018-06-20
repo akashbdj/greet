@@ -28,9 +28,12 @@ $ npm run test
 
 #### Fake username/password:
 ```
- username: akashbdj,
+ username: akashbdj
  password: akash123
  
- username: johndoe,
+ username: johndoe
  password: john123
+ 
+ username: steve
+ password: steve123
 ```
